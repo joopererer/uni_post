@@ -15,4 +15,4 @@ Your local data and images are used strictly for **API posting** to your own Pin
 
 ## 4. Contact Information
 If you have any questions, concerns, or requests regarding your data and privacy, please contact the developer directly at:
-**Email:** joopererer@gmail.com
+**Email:** [joopererer@gmail.com]
