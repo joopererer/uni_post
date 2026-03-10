@@ -1,11 +1,11 @@
-# Privacy Policy for UniPost Studio
+# Privacy Policy for UniPost Creator Tool
 
 **Last updated:** March 10, 2026
 
-This Privacy Policy describes how UniPost Studio ("the App") handles your information. 
+This Privacy Policy describes how UniPost Creator Tool ("the App") handles your information. 
 
 ## 1. What data do we collect?
-**We collect NO personal data on our servers.** UniPost Studio is a strictly client-side application. All data, including your Pinterest authentication tokens, posting history, and selected images, remains stored locally on your own device.
+**We collect NO personal data on our servers.** UniPost Creator Tool is a strictly client-side application. All data, including your Pinterest authentication tokens, posting history, and selected images, remains stored locally on your own device.
 
 ## 2. How is the data used?
 Your local data and images are used strictly for **API posting** to your own Pinterest account. When you select images to post, the App securely transmits them directly from your device to the official Pinterest API to create Pins or Carousel Pins on your behalf.
