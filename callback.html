@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UniPost – Redirecting...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: sans-serif; display: flex; justify-content: center;
+           align-items: center; height: 100vh; margin: 0; background: #fff; }
+    p { color: #555; }
+  </style>
+</head>
+<body>
+  <p>Redirecting to UniPost…</p>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code  = params.get('code');
+    const error = params.get('error');
+    if (code) {
+      window.location.replace('unipost://oauth?code=' + encodeURIComponent(code));
+    } else if (error) {
+      window.location.replace('unipost://oauth?error=' + encodeURIComponent(error));
+    }
+  </script>
+</body>
+</html>
