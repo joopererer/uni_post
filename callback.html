@@ -16,7 +16,11 @@
     const code  = params.get('code');
     const error = params.get('error');
     if (code) {
-      window.location.replace('unipost://oauth?code=' + encodeURIComponent(code));
+      // Android Intent URL: targets app by package name, bypasses "Open with" dialog
+      const intentUrl =
+        'intent://oauth?code=' + encodeURIComponent(code) +
+        '#Intent;scheme=unipost;package=com.example.uni_pinterest;end;';
+      window.location.replace(intentUrl);
     } else if (error) {
       window.location.replace('unipost://oauth?error=' + encodeURIComponent(error));
     }
