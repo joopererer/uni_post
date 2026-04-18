@@ -41,7 +41,7 @@
       }
 
       main {
-        max-width: 980px;
+        max-width: 860px;
         margin: 0 auto;
         padding: 40px 20px 72px;
       }
@@ -71,54 +71,25 @@
         font-size: 14px;
       }
 
-      .language-switch {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 18px;
-      }
-
-      .language-switch a {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 14px;
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        text-decoration: none;
-        color: var(--text);
-        background: var(--surface-2);
-      }
-
-      .language-switch a:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-      }
-
       h1,
       h2,
       h3 {
         line-height: 1.25;
       }
 
-      h1 { margin: 14px 0 10px; font-size: clamp(30px, 4vw, 42px); }
+      h1 {
+        margin: 14px 0 10px;
+        font-size: clamp(30px, 4vw, 42px);
+      }
+
       h2 { margin: 0 0 12px; font-size: 22px; }
 
       p,
-      li {
-        color: var(--text);
-      }
+      li { color: var(--text); }
 
       .muted { color: var(--muted); }
-
-      .section {
-        margin-top: 20px;
-        padding: 24px;
-      }
-
-      .section ul {
-        margin: 12px 0 0 20px;
-      }
+      .section { margin-top: 20px; padding: 24px; }
+      .section ul { margin: 12px 0 0 20px; }
 
       a {
         color: var(--accent);
@@ -159,10 +130,26 @@
         color: var(--muted);
       }
 
-      code {
-        padding: 2px 6px;
-        border-radius: 6px;
-        background: rgba(127, 127, 127, 0.14);
+      .toplinks {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .toplinks a {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 12px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--surface-2);
+        color: var(--text);
+      }
+
+      .toplinks a:hover {
+        border-color: var(--accent);
+        color: var(--accent);
       }
     </style>
   </head>
@@ -172,14 +159,14 @@
         <span class="badge">UniPost · Privacy Policy</span>
         <h1>Privacy Policy</h1>
         <p class="muted">
-          This is the official privacy policy page for UniPost. The historical
-          <code>privacy.md</code> file remains reserved for Pinterest API application notes.
+          This is the official privacy policy for UniPost. The historical <code>privacy.md</code>
+          file remains reserved for Pinterest API application notes.
         </p>
 
-        <div class="language-switch" aria-label="Language switch">
-          <a href="#en">English</a>
-          <a href="#zh">中文</a>
-          <a href="./index.html">Auto detect</a>
+        <div class="toplinks">
+          <a href="./index.html">Entry page</a>
+          <a href="../privacy.md">API notes</a>
+          <a href="https://github.com/joopererer/uni_post/issues">Contact</a>
         </div>
 
         <div class="meta-grid">
@@ -198,121 +185,82 @@
         </div>
       </section>
 
-      <section class="section" id="en" lang="en">
-        <h2>English</h2>
-
-        <h3>1. Information We Collect</h3>
+      <section class="section">
+        <h2>1. Information We Collect</h2>
         <ul>
           <li>Pinterest account information you authorize, such as username, account ID, board data, and access tokens.</li>
           <li>Images, tags, upload queues, and posting history you choose to process with the app.</li>
           <li>Local app preferences such as language, theme, upload fingerprints, and account cache.</li>
         </ul>
+      </section>
 
-        <h3>2. How We Use the Information</h3>
+      <section class="section">
+        <h2>2. How We Use the Information</h2>
         <ul>
           <li>To complete Pinterest sign-in, account management, board loading, and image publishing.</li>
           <li>To identify previously uploaded content locally and reduce duplicate publishing.</li>
           <li>To preserve your UI preferences and improve app experience.</li>
         </ul>
+      </section>
 
-        <h3>3. Storage and Transmission</h3>
+      <section class="section">
+        <h2>3. Storage and Transmission</h2>
         <ul>
           <li>Most account and task data are stored locally on your device and are not uploaded to a UniPost-owned server.</li>
           <li>Pinterest authorization and publishing requests are sent directly to Pinterest after you grant consent.</li>
           <li>OAuth redirect pages are used only as a callback bridge and are not used for advertising or profiling.</li>
         </ul>
+      </section>
 
-        <h3>4. Third-Party Services</h3>
+      <section class="section">
+        <h2>4. Third-Party Services</h2>
         <ul>
           <li>Pinterest: used for account authorization, board retrieval, and pin publishing.</li>
           <li>GitHub Pages: used to host help pages, privacy policy pages, and release notes.</li>
         </ul>
+      </section>
 
-        <h3>5. Your Choices and Rights</h3>
+      <section class="section">
+        <h2>5. Your Choices and Rights</h2>
         <ul>
           <li>You can remove an account and delete its local data at any time inside the app.</li>
           <li>You can reset the uploaded-fingerprint index in Settings → Data management.</li>
           <li>If you have deletion, correction, or privacy-related questions, you can contact us through GitHub Issues.</li>
         </ul>
+      </section>
 
-        <h3>6. Data Retention</h3>
+      <section class="section">
+        <h2>6. Data Retention</h2>
         <p>
           Account cache, upload fingerprints, and history are kept locally until you manually remove the account,
           clear history, or reset the index.
         </p>
+      </section>
 
-        <h3>7. Children’s Privacy</h3>
+      <section class="section">
+        <h2>7. Children’s Privacy</h2>
         <p>UniPost is intended for general audiences and does not knowingly collect personal information from children under 13.</p>
+      </section>
 
-        <h3>8. Policy Updates</h3>
+      <section class="section">
+        <h2>8. Policy Updates</h2>
         <p>
           If our data handling practices change, we will update this page and may notify you in the app or release notes.
         </p>
       </section>
 
-      <section class="section" id="zh" lang="zh-CN">
-        <h2>中文</h2>
-
-        <h3>1. 我们收集哪些信息</h3>
-        <ul>
-          <li>你授权连接的 Pinterest 账号信息，例如用户名、账号 ID、画板信息与访问令牌。</li>
-          <li>你主动选择用于发布的图片、标签、发布队列与发布历史。</li>
-          <li>必要的本地应用配置，例如语言、主题、上传索引与账户缓存。</li>
-        </ul>
-
-        <h3>2. 我们如何使用这些信息</h3>
-        <ul>
-          <li>用于完成 Pinterest 登录、账号管理、画板加载与图片发布流程。</li>
-          <li>用于在本地识别已上传内容，减少重复发布。</li>
-          <li>用于保存你的界面偏好设置并改善应用体验。</li>
-        </ul>
-
-        <h3>3. 数据存储与传输</h3>
-        <ul>
-          <li>大部分账号和任务数据保存在你的设备本地，不会上传到 UniPost 自有服务器。</li>
-          <li>与 Pinterest 相关的授权和发布请求会在你授权后直接与 Pinterest 服务交互。</li>
-          <li>用于 OAuth 跳转的网页仅承担回调中转作用，不会用于广告追踪或画像分析。</li>
-        </ul>
-
-        <h3>4. 第三方服务</h3>
-        <ul>
-          <li>Pinterest：用于账号授权、画板获取与图钉发布。</li>
-          <li>GitHub Pages：用于承载帮助页、隐私政策和更新说明。</li>
-        </ul>
-
-        <h3>5. 你的选择与权利</h3>
-        <ul>
-          <li>你可以随时在应用内移除账号并清除本地数据。</li>
-          <li>你可以在“设置 → 数据管理”中重置已上传识别索引。</li>
-          <li>如需提出数据删除、修正或隐私相关问题，可通过 GitHub Issues 联系我们。</li>
-        </ul>
-
-        <h3>6. 数据保留</h3>
-        <p>
-          账号缓存、上传索引与历史记录仅会在设备本地保留，直至你手动移除账号、清除历史或重置索引。
-        </p>
-
-        <h3>7. 儿童隐私</h3>
-        <p>UniPost 面向一般用户，不面向 13 岁以下儿童主动收集个人信息。</p>
-
-        <h3>8. 隐私政策更新</h3>
-        <p>
-          如果我们的数据处理方式发生变化，我们会更新本页面，并在必要时在应用内或发布说明中提示。
-        </p>
-      </section>
-
       <section class="note">
-        <strong>Note / 补充说明：</strong>
+        <strong>Note:</strong>
         <p>
           The historical Pinterest API application notes remain in <a href="../privacy.md">privacy.md</a>.
-          / 如需查看 Pinterest API 申请相关的历史说明，请访问 <a href="../privacy.md">privacy.md</a>。
         </p>
       </section>
 
       <p class="footer">
-        Contact / 联系方式：<a href="https://github.com/joopererer/uni_post/issues">GitHub Issues</a>
+        Contact: <a href="https://github.com/joopererer/uni_post/issues">GitHub Issues</a>
       </p>
     </main>
   </body>
 </html>
+
 
