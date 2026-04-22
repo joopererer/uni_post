@@ -7,10 +7,11 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      display: flex; align-items: center; justify-content: center;
+      display: flex; align-items: flex-start; justify-content: center;
       min-height: 100vh; background: #fff; color: #111;
+      padding-top: 18vh;
     }
-    .card { text-align: center; max-width: 360px; width: 100%; padding: 2rem 1.5rem; }
+    .card { text-align: center; max-width: 360px; width: 100%; padding: 0 1.5rem 2rem; }
     .brand { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 0.6rem; }
     .brand-name { font-size: 16px; font-weight: 600; color: #111; }
     h1 { font-size: 21px; font-weight: 600; margin-bottom: 0.5rem; color: #111; }
@@ -25,15 +26,12 @@
     .callout-text { font-size: 13px; color: #92600a; line-height: 1.55; }
     .callout-text strong { font-weight: 600; }
     .hint { font-size: 12px; color: #aaa; margin-bottom: 0; }
-
-    /* error state overrides */
     .icon-inner.error { background: #fdf0f0; border-color: #f5c6c6; }
   </style>
 </head>
 <body>
   <div class="card">
-
-    <!-- Icon -->
+ 
     <div style="position:relative;width:88px;height:88px;margin:0 auto 1.75rem;">
       <svg width="88" height="88" viewBox="0 0 88 88" fill="none" style="position:absolute;top:0;left:0;">
         <circle id="outer-ring" cx="44" cy="44" r="42" stroke="#c3e6d2" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.7"/>
@@ -49,7 +47,6 @@
           <line x1="25" y1="11" x2="11" y2="25" stroke="#e24b4a" stroke-width="2.8" stroke-linecap="round"/>
         </svg>
       </div>
-      <!-- Pinterest badge -->
       <div id="pinterest-badge" style="position:absolute;bottom:2px;right:2px;width:26px;height:26px;border-radius:50%;background:#fff;border:1.5px solid #eee;display:flex;align-items:center;justify-content:center;">
         <svg width="18" height="18" viewBox="0 0 24 24">
           <rect width="24" height="24" rx="6" fill="#E60023"/>
@@ -57,14 +54,14 @@
         </svg>
       </div>
     </div>
-
+ 
     <div class="brand">
       <span class="brand-name">UniPost</span>
     </div>
-
-    <h1 id="title-text">Pinterest account connected</h1>
-    <p/>
-
+ 
+    <h1 id="title-text">Pinterest connected successfully</h1>
+    <p id="body-text"></p>
+ 
     <div class="callout" id="callout">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <circle cx="8" cy="8" r="7" stroke="#d97706" stroke-width="1.4"/>
@@ -75,16 +72,16 @@
         A prompt will appear asking to <strong>open UniPost</strong> — tap <strong>Allow</strong> to return to the app.
       </span>
     </div>
-
+ 
     <p class="hint" id="hint-text">Redirecting in a moment…</p>
-
+ 
   </div>
-
+ 
   <script>
     const params = new URLSearchParams(window.location.search);
     const code  = params.get('code');
     const error = params.get('error');
-
+ 
     if (error) {
       document.getElementById('outer-ring').setAttribute('stroke', '#f5c6c6');
       document.getElementById('icon-inner').classList.add('error');
