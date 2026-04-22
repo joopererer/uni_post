@@ -1,266 +1,421 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light dark" />
-    <title>UniPost Privacy Policy</title>
-    <style>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>UniPost · Privacy Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #fafaf8;
+      --surface:   #ffffff;
+      --surface-2: #f5f4f0;
+      --text:      #1a1a18;
+      --muted:     #7a7a72;
+      --border:    #e8e6df;
+      --accent:    #e60023;
+      --accent-dim:#c4001e;
+      --accent-bg: rgba(230,0,35,0.06);
+    }
+    @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #ffffff;
-        --surface: #f7f7f8;
-        --surface-2: #ffffff;
-        --text: #1f2328;
-        --muted: #667085;
-        --border: #e4e7ec;
-        --accent: #e60023;
-        --accent-soft: rgba(230, 0, 35, 0.08);
+        --bg:        #111110;
+        --surface:   #1a1917;
+        --surface-2: #222120;
+        --text:      #e8e6df;
+        --muted:     #8a8880;
+        --border:    #2e2c28;
+        --accent-bg: rgba(230,0,35,0.10);
       }
-
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg: #0f1115;
-          --surface: #171a21;
-          --surface-2: #151821;
-          --text: #e6e6e6;
-          --muted: #a8b0bd;
-          --border: #2a2f3a;
-          --accent-soft: rgba(230, 0, 35, 0.14);
-        }
-      }
-
-      * { box-sizing: border-box; }
-
-      body {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC",
-          "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.8;
-      }
-
-      main {
-        max-width: 860px;
-        margin: 0 auto;
-        padding: 40px 20px 72px;
-      }
-
-      .hero,
-      .section,
-      .note {
-        border: 1px solid var(--border);
-        border-radius: 22px;
-        background: var(--surface);
-      }
-
-      .hero {
-        padding: 28px;
-        background: linear-gradient(180deg, var(--accent-soft), transparent 62%), var(--surface);
-      }
-
-      .badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 6px 12px;
-        border-radius: 999px;
-        background: var(--accent-soft);
-        color: var(--accent);
-        font-weight: 600;
-        font-size: 14px;
-      }
-
-      h1,
-      h2,
-      h3 {
-        line-height: 1.25;
-      }
-
-      h1 {
-        margin: 14px 0 10px;
-        font-size: clamp(30px, 4vw, 42px);
-      }
-
-      h2 { margin: 0 0 12px; font-size: 22px; }
-
-      p,
-      li { color: var(--text); }
-
-      .muted { color: var(--muted); }
-      .section { margin-top: 20px; padding: 24px; }
-      .section ul { margin: 12px 0 0 20px; }
-
-      a {
-        color: var(--accent);
-        text-decoration: none;
-      }
-
-      a:hover { text-decoration: underline; }
-
-      .meta-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 12px;
-        margin-top: 18px;
-      }
-
-      .meta-card {
-        padding: 16px;
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        background: var(--surface-2);
-      }
-
-      .meta-card strong {
-        display: block;
-        margin-bottom: 6px;
-      }
-
-      .note {
-        margin-top: 20px;
-        padding: 18px;
-        border-left: 4px solid var(--accent);
-        background: var(--accent-soft);
-      }
-
-      .footer {
-        margin-top: 24px;
-        font-size: 14px;
-        color: var(--muted);
-      }
-
-      .toplinks {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 18px;
-      }
-
-      .toplinks a {
-        display: inline-flex;
-        align-items: center;
-        padding: 8px 12px;
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        background: var(--surface-2);
-        color: var(--text);
-      }
-
-      .toplinks a:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <section class="hero">
-        <span class="badge">UniPost · Privacy Policy</span>
-        <h1>Privacy Policy</h1>
-        <p class="muted">
-          This is the official privacy policy for UniPost. The historical <code>privacy.md</code>
-          file remains reserved for Pinterest API application notes.
-        </p>
-
-        <div class="toplinks">
-          <a href="./index.html">Entry page</a>
-          <a href="../privacy.md">API notes</a>
-          <a href="https://github.com/joopererer/uni_post/issues">Contact</a>
+    }
+ 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+ 
+    /* ── Layout ── */
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+ 
+    /* ── Header ── */
+    .header {
+      margin-bottom: 56px;
+    }
+ 
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      background: var(--surface);
+      margin-bottom: 28px;
+    }
+ 
+    .pill-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+ 
+    .header h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(36px, 5vw, 54px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+ 
+    .header h1 em {
+      color: var(--accent);
+      font-style: italic;
+    }
+ 
+    .header-sub {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+ 
+    /* ── Meta strip ── */
+    .meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+ 
+    .meta-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 13px;
+      background: var(--surface);
+      color: var(--text);
+    }
+ 
+    .meta-tag span { color: var(--muted); }
+ 
+    /* ── Quick links ── */
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 48px;
+    }
+ 
+    .ql-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 15px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      background: var(--surface);
+      text-decoration: none;
+      transition: border-color .15s, color .15s;
+    }
+    .ql-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .ql-btn svg { opacity: .5; }
+ 
+    /* ── Sections ── */
+    .section-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+ 
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 0;
+      padding: 28px 32px;
+      transition: background .15s;
+    }
+ 
+    .section:first-child { border-radius: 16px 16px 0 0; }
+    .section:last-child  { border-radius: 0 0 16px 16px; }
+    .section:only-child  { border-radius: 16px; }
+ 
+    .section:hover { background: var(--surface-2); }
+ 
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+ 
+    .section-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--accent-bg);
+      border: 1px solid rgba(230,0,35,.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 1px;
+    }
+ 
+    .section h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.35;
+      color: var(--text);
+    }
+ 
+    .section p, .section li {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+ 
+    .section ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+ 
+    .section li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+ 
+    .section li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: .5;
+      margin-top: 9px;
+    }
+ 
+    /* ── Note callout ── */
+    .note {
+      margin-top: 24px;
+      padding: 20px 24px;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 12px;
+      background: var(--accent-bg);
+      font-size: 14px;
+      color: var(--muted);
+    }
+ 
+    .note strong { color: var(--text); display: block; margin-bottom: 4px; font-weight: 500; }
+    .note a { color: var(--accent); text-decoration: none; }
+    .note a:hover { text-decoration: underline; }
+ 
+    /* ── Footer ── */
+    .footer {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+ 
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+ 
+    /* ── Divider between header and sections ── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0 32px;
+    }
+ 
+    @media (max-width: 520px) {
+      .page { padding: 36px 16px 72px; }
+      .section { padding: 22px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+ 
+    <!-- Header -->
+    <header class="header">
+      <div class="pill">
+        <div class="pill-dot"></div>
+        UniPost · Privacy Policy
+      </div>
+ 
+      <h1>Your data,<br><em>your control.</em></h1>
+ 
+      <p class="header-sub">
+        This is the official privacy policy for UniPost. The historical
+        <code>privacy.md</code> file remains reserved for Pinterest API application notes.
+      </p>
+ 
+      <div class="meta-strip">
+        <div class="meta-tag"><span>Scope</span> UniPost mobile app</div>
+        <div class="meta-tag"><span>Effective</span> 2026-04-18</div>
+        <div class="meta-tag"><span>Controller</span> UniPost maintainer</div>
+      </div>
+    </header>
+ 
+    <!-- Quick links -->
+    <nav class="quick-links" aria-label="Quick links">
+      <a class="ql-btn" href="./index.html">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M6.5 2l4.5 4.5L6.5 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Entry page
+      </a>
+      <a class="ql-btn" href="../privacy.md">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="2" y="1.5" width="9" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/><line x1="4" y1="4.5" x2="9" y2="4.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><line x1="4" y1="6.5" x2="9" y2="6.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><line x1="4" y1="8.5" x2="7" y2="8.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        API notes
+      </a>
+      <a class="ql-btn" href="https://github.com/joopererer/uni_post/issues">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.3"/><path d="M6.5 5.5v1.5l1 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Contact
+      </a>
+    </nav>
+ 
+    <div class="divider"></div>
+ 
+    <!-- Sections -->
+    <div class="section-group">
+ 
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">1</div>
+          <h2>Information We Collect</h2>
         </div>
-
-        <div class="meta-grid">
-          <div class="meta-card">
-            <strong>Scope</strong>
-            <span class="muted">UniPost mobile app and related public documentation pages</span>
-          </div>
-          <div class="meta-card">
-            <strong>Effective date</strong>
-            <span class="muted">2026-04-18</span>
-          </div>
-          <div class="meta-card">
-            <strong>Data controller</strong>
-            <span class="muted">The UniPost project maintainer</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>1. Information We Collect</h2>
         <ul>
           <li>Pinterest account information you authorize, such as username, account ID, board data, and access tokens.</li>
           <li>Images, tags, upload queues, and posting history you choose to process with the app.</li>
           <li>Local app preferences such as language, theme, upload fingerprints, and account cache.</li>
         </ul>
-      </section>
-
-      <section class="section">
-        <h2>2. How We Use the Information</h2>
+      </div>
+ 
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">2</div>
+          <h2>How We Use the Information</h2>
+        </div>
         <ul>
           <li>To complete Pinterest sign-in, account management, board loading, and image publishing.</li>
           <li>To identify previously uploaded content locally and reduce duplicate publishing.</li>
           <li>To preserve your UI preferences and improve app experience.</li>
         </ul>
-      </section>
-
-      <section class="section">
-        <h2>3. Storage and Transmission</h2>
+      </div>
+ 
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">3</div>
+          <h2>Storage and Transmission</h2>
+        </div>
         <ul>
           <li>Most account and task data are stored locally on your device and are not uploaded to a UniPost-owned server.</li>
           <li>Pinterest authorization and publishing requests are sent directly to Pinterest after you grant consent.</li>
           <li>OAuth redirect pages are used only as a callback bridge and are not used for advertising or profiling.</li>
         </ul>
-      </section>
-
-      <section class="section">
-        <h2>4. Third-Party Services</h2>
+      </div>
+ 
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">4</div>
+          <h2>Third-Party Services</h2>
+        </div>
         <ul>
-          <li>Pinterest: used for account authorization, board retrieval, and pin publishing.</li>
-          <li>GitHub Pages: used to host help pages, privacy policy pages, and release notes.</li>
+          <li><strong style="color:var(--text);font-weight:500;">Pinterest</strong> — used for account authorization, board retrieval, and pin publishing.</li>
+          <li><strong style="color:var(--text);font-weight:500;">GitHub Pages</strong> — used to host help pages, privacy policy pages, and release notes.</li>
         </ul>
-      </section>
-
-      <section class="section">
-        <h2>5. Your Choices and Rights</h2>
+      </div>
+ 
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">5</div>
+          <h2>Your Choices and Rights</h2>
+        </div>
         <ul>
           <li>You can remove an account and delete its local data at any time inside the app.</li>
           <li>You can reset the uploaded-fingerprint index in Settings → Data management.</li>
-          <li>If you have deletion, correction, or privacy-related questions, you can contact us through GitHub Issues.</li>
+          <li>For deletion, correction, or privacy-related questions, contact us through GitHub Issues.</li>
         </ul>
-      </section>
-
-      <section class="section">
-        <h2>6. Data Retention</h2>
-        <p>
-          Account cache, upload fingerprints, and history are kept locally until you manually remove the account,
-          clear history, or reset the index.
-        </p>
-      </section>
-
-      <section class="section">
-        <h2>7. Children’s Privacy</h2>
+      </div>
+ 
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">6</div>
+          <h2>Data Retention</h2>
+        </div>
+        <p>Account cache, upload fingerprints, and history are kept locally until you manually remove the account, clear history, or reset the index.</p>
+      </div>
+ 
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">7</div>
+          <h2>Children's Privacy</h2>
+        </div>
         <p>UniPost is intended for general audiences and does not knowingly collect personal information from children under 13.</p>
-      </section>
-
-      <section class="section">
-        <h2>8. Policy Updates</h2>
-        <p>
-          If our data handling practices change, we will update this page and may notify you in the app or release notes.
-        </p>
-      </section>
-
-      <section class="note">
-        <strong>Note:</strong>
-        <p>
-          The historical Pinterest API application notes remain in <a href="../privacy.md">privacy.md</a>.
-        </p>
-      </section>
-
-      <p class="footer">
-        Contact: <a href="https://github.com/joopererer/uni_post/issues">GitHub Issues</a>
-      </p>
-    </main>
-  </body>
+      </div>
+ 
+      <div class="section">
+        <div class="section-header">
+          <div class="section-num">8</div>
+          <h2>Policy Updates</h2>
+        </div>
+        <p>If our data handling practices change, we will update this page and may notify you in the app or release notes.</p>
+      </div>
+ 
+    </div>
+ 
+    <!-- Note -->
+    <div class="note">
+      <strong>Note</strong>
+      The historical Pinterest API application notes remain in
+      <a href="../privacy.md">privacy.md</a>.
+    </div>
+ 
+    <!-- Footer -->
+    <footer class="footer">
+      <span>UniPost Privacy Policy · Effective 2026-04-18</span>
+      <a href="https://github.com/joopererer/uni_post/issues">GitHub Issues →</a>
+    </footer>
+ 
+  </main>
+</body>
 </html>
-
-
