@@ -11,21 +11,10 @@
       min-height: 100vh; background: #fff; color: #111;
     }
     .card { text-align: center; max-width: 360px; width: 100%; padding: 2rem 1.5rem; }
-
-    .icon-wrap {
-      width: 72px; height: 72px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 1.5rem;
-      background: #edf7f1; border: 1px solid #c3e6d2;
-    }
-    .icon-wrap.error { background: #fdf0f0; border-color: #f5c6c6; }
-
-    .brand { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 0.75rem; }
+    .brand { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 0.6rem; }
     .brand-name { font-size: 15px; font-weight: 600; color: #111; }
-
-    h1 { font-size: 20px; font-weight: 600; margin-bottom: 0.5rem; color: #111; }
+    h1 { font-size: 21px; font-weight: 600; margin-bottom: 0.5rem; color: #111; }
     p  { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 1.25rem; }
-
     .callout {
       display: flex; align-items: flex-start; gap: 10px;
       background: #fffbea; border: 1px solid #fde68a;
@@ -35,36 +24,47 @@
     .callout svg { flex-shrink: 0; margin-top: 1px; }
     .callout-text { font-size: 13px; color: #92600a; line-height: 1.55; }
     .callout-text strong { font-weight: 600; }
-
     .hint { font-size: 12px; color: #aaa; margin-bottom: 0; }
+
+    /* error state overrides */
+    .icon-inner.error { background: #fdf0f0; border-color: #f5c6c6; }
   </style>
 </head>
 <body>
   <div class="card">
 
-    <div class="icon-wrap" id="icon-wrap">
-      <svg id="icon-check" width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <polyline points="7,17 13,23 25,10" stroke="#22a05b" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Icon -->
+    <div style="position:relative;width:88px;height:88px;margin:0 auto 1.75rem;">
+      <svg width="88" height="88" viewBox="0 0 88 88" fill="none" style="position:absolute;top:0;left:0;">
+        <circle id="outer-ring" cx="44" cy="44" r="42" stroke="#c3e6d2" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.7"/>
       </svg>
-      <svg id="icon-error" width="32" height="32" viewBox="0 0 32 32" fill="none" style="display:none;">
-        <line x1="10" y1="10" x2="22" y2="22" stroke="#e24b4a" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="22" y1="10" x2="10" y2="22" stroke="#e24b4a" stroke-width="2.5" stroke-linecap="round"/>
-      </svg>
+      <div id="icon-inner" class="icon-inner" style="position:absolute;top:8px;left:8px;width:72px;height:72px;border-radius:50%;background:#edf7f1;border:1.5px solid #c3e6d2;display:flex;align-items:center;justify-content:center;">
+        <svg id="icon-check" width="36" height="36" viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="18" r="17" fill="#22a05b" opacity="0.12"/>
+          <polyline points="9,19 15,25 27,12" stroke="#22a05b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg id="icon-error" width="36" height="36" viewBox="0 0 36 36" fill="none" style="display:none;">
+          <circle cx="18" cy="18" r="17" fill="#e24b4a" opacity="0.12"/>
+          <line x1="11" y1="11" x2="25" y2="25" stroke="#e24b4a" stroke-width="2.8" stroke-linecap="round"/>
+          <line x1="25" y1="11" x2="11" y2="25" stroke="#e24b4a" stroke-width="2.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <!-- Pinterest badge -->
+      <div id="pinterest-badge" style="position:absolute;bottom:2px;right:2px;width:26px;height:26px;border-radius:50%;background:#fff;border:1.5px solid #eee;display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <rect width="24" height="24" rx="6" fill="#E60023"/>
+          <path d="M12 3C7.03 3 3 7.03 3 12c0 3.77 2.28 7.01 5.56 8.43-.08-.71-.15-1.8.03-2.58.16-.7 1.08-4.57 1.08-4.57s-.28-.55-.28-1.37c0-1.28.74-2.24 1.67-2.24.79 0 1.17.59 1.17 1.3 0 .79-.5 1.98-.77 3.08-.22.92.46 1.67 1.37 1.67 1.64 0 2.9-1.73 2.9-4.22 0-2.21-1.59-3.75-3.86-3.75-2.63 0-4.17 1.97-4.17 4.01 0 .79.3 1.64.68 2.1.07.09.08.17.06.26-.07.29-.23.92-.26 1.04-.04.17-.14.2-.31.12-1.17-.55-1.9-2.26-1.9-3.64 0-2.96 2.15-5.68 6.2-5.68 3.26 0 5.79 2.32 5.79 5.42 0 3.23-2.04 5.83-4.87 5.83-.95 0-1.84-.49-2.15-1.07l-.58 2.18c-.21.81-.78 1.82-1.16 2.44.87.27 1.8.42 2.76.42 4.97 0 9-4.03 9-9S16.97 3 12 3z" fill="white"/>
+        </svg>
+      </div>
     </div>
 
     <div class="brand">
-      <svg width="22" height="22" viewBox="0 0 24 24">
-        <rect width="24" height="24" rx="6" fill="#E60023"/>
-        <path d="M12 3C7.03 3 3 7.03 3 12c0 3.77 2.28 7.01 5.56 8.43-.08-.71-.15-1.8.03-2.58.16-.7 1.08-4.57 1.08-4.57s-.28-.55-.28-1.37c0-1.28.74-2.24 1.67-2.24.79 0 1.17.59 1.17 1.3 0 .79-.5 1.98-.77 3.08-.22.92.46 1.67 1.37 1.67 1.64 0 2.9-1.73 2.9-4.22 0-2.21-1.59-3.75-3.86-3.75-2.63 0-4.17 1.97-4.17 4.01 0 .79.3 1.64.68 2.1.07.09.08.17.06.26-.07.29-.23.92-.26 1.04-.04.17-.14.2-.31.12-1.17-.55-1.9-2.26-1.9-3.64 0-2.96 2.15-5.68 6.2-5.68 3.26 0 5.79 2.32 5.79 5.42 0 3.23-2.04 5.83-4.87 5.83-.95 0-1.84-.49-2.15-1.07l-.58 2.18c-.21.81-.78 1.82-1.16 2.44.87.27 1.8.42 2.76.42 4.97 0 9-4.03 9-9S16.97 3 12 3z" fill="white"/>
-      </svg>
       <span class="brand-name">UniPost</span>
     </div>
 
     <h1 id="title-text">Pinterest connected</h1>
     <p id="body-text">Your Pinterest account has been linked successfully.</p>
 
-    <!-- 仅 success 状态显示此提示 -->
     <div class="callout" id="callout">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <circle cx="8" cy="8" r="7" stroke="#d97706" stroke-width="1.4"/>
@@ -86,7 +86,8 @@
     const error = params.get('error');
 
     if (error) {
-      document.getElementById('icon-wrap').classList.add('error');
+      document.getElementById('outer-ring').setAttribute('stroke', '#f5c6c6');
+      document.getElementById('icon-inner').classList.add('error');
       document.getElementById('icon-check').style.display = 'none';
       document.getElementById('icon-error').style.display = 'block';
       document.getElementById('title-text').textContent = 'Connection failed';
@@ -99,7 +100,6 @@
       const intentUrl =
         'intent://oauth?code=' + encodeURIComponent(code) +
         '#Intent;scheme=unipost;package=com.joopererer.unipost;end;';
-      // 给用户 1.5s 读提示，再触发系统弹窗
       setTimeout(() => window.location.replace(intentUrl), 1500);
     }
   </script>
