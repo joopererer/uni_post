@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>UniPost – Redirecting...</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,12 +27,12 @@
     .callout-text { font-size: 13px; color: #92600a; line-height: 1.55; }
     .callout-text strong { font-weight: 600; }
     .hint { font-size: 12px; color: #aaa; margin-bottom: 0; }
-    .icon-inner.error { background: #fdf0f0; border-color: #f5c6c6; }
+    .icon-inner.error { background: #fdf0f0 !important; border-color: #f5c6c6 !important; }
   </style>
 </head>
 <body>
   <div class="card">
- 
+
     <div style="position:relative;width:88px;height:88px;margin:0 auto 1.75rem;">
       <svg width="88" height="88" viewBox="0 0 88 88" fill="none" style="position:absolute;top:0;left:0;">
         <circle id="outer-ring" cx="44" cy="44" r="42" stroke="#c3e6d2" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.7"/>
@@ -53,15 +54,16 @@
           <path d="M12 3C7.03 3 3 7.03 3 12c0 3.77 2.28 7.01 5.56 8.43-.08-.71-.15-1.8.03-2.58.16-.7 1.08-4.57 1.08-4.57s-.28-.55-.28-1.37c0-1.28.74-2.24 1.67-2.24.79 0 1.17.59 1.17 1.3 0 .79-.5 1.98-.77 3.08-.22.92.46 1.67 1.37 1.67 1.64 0 2.9-1.73 2.9-4.22 0-2.21-1.59-3.75-3.86-3.75-2.63 0-4.17 1.97-4.17 4.01 0 .79.3 1.64.68 2.1.07.09.08.17.06.26-.07.29-.23.92-.26 1.04-.04.17-.14.2-.31.12-1.17-.55-1.9-2.26-1.9-3.64 0-2.96 2.15-5.68 6.2-5.68 3.26 0 5.79 2.32 5.79 5.42 0 3.23-2.04 5.83-4.87 5.83-.95 0-1.84-.49-2.15-1.07l-.58 2.18c-.21.81-.78 1.82-1.16 2.44.87.27 1.8.42 2.76.42 4.97 0 9-4.03 9-9S16.97 3 12 3z" fill="white"/>
         </svg>
       </div>
+      <div id="flickr-badge" style="display:none;position:absolute;bottom:2px;right:2px;width:26px;height:26px;border-radius:50%;background:#fff;border:1.5px solid #eee;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#0063dc;">fl</div>
     </div>
- 
+
     <div class="brand">
       <span class="brand-name">UniPost</span>
     </div>
- 
+
     <h1 id="title-text">Pinterest connected successfully</h1>
-    <p id="hint"></p>
- 
+    <p id="hint" class="hint"></p>
+
     <div class="callout" id="callout">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <circle cx="8" cy="8" r="7" stroke="#d97706" stroke-width="1.4"/>
@@ -74,30 +76,58 @@
     </div>
 
     <p id="body-text">You can close this page now.</p>
- 
+
   </div>
- 
+
   <script>
     const params = new URLSearchParams(window.location.search);
-    const code  = params.get('code');
+    const code = params.get('code');
     const error = params.get('error');
- 
-    if (error) {
+    const oauthVerifier = params.get('oauth_verifier');
+    const oauthToken = params.get('oauth_token') || '';
+
+    function showError(title, body) {
       document.getElementById('outer-ring').setAttribute('stroke', '#f5c6c6');
       document.getElementById('icon-inner').classList.add('error');
       document.getElementById('icon-check').style.display = 'none';
       document.getElementById('icon-error').style.display = 'block';
-      document.getElementById('title-text').textContent = 'Connection failed';
-      document.getElementById('body-text').textContent =
-        'Something went wrong while linking your Pinterest account. Please try again.';
+      document.getElementById('title-text').textContent = title;
+      document.getElementById('body-text').textContent = body;
       document.getElementById('callout').style.display = 'none';
-      document.getElementById('hint-text').textContent = '';
+      document.getElementById('pinterest-badge').style.display = 'none';
+      document.getElementById('flickr-badge').style.display = 'none';
+      var hint = document.getElementById('hint');
+      if (hint) hint.textContent = '';
+    }
+
+    if (error) {
+      showError(
+        'Connection failed',
+        'Something went wrong while linking your account. Please try again.'
+      );
       window.location.replace('unipost://oauth?error=' + encodeURIComponent(error));
     } else if (code) {
+      document.getElementById('pinterest-badge').style.display = 'flex';
+      document.getElementById('flickr-badge').style.display = 'none';
       const intentUrl =
         'intent://oauth?code=' + encodeURIComponent(code) +
         '#Intent;scheme=unipost;package=com.joopererer.unipost;end;';
-      setTimeout(() => window.location.replace(intentUrl), 1500);
+      setTimeout(function () { window.location.replace(intentUrl); }, 1500);
+    } else if (oauthVerifier) {
+      document.getElementById('title-text').textContent = 'Flickr connected successfully';
+      document.getElementById('pinterest-badge').style.display = 'none';
+      var fb = document.getElementById('flickr-badge');
+      fb.style.display = 'flex';
+      const intentUrl =
+        'intent://oauth?oauth_token=' + encodeURIComponent(oauthToken) +
+        '&oauth_verifier=' + encodeURIComponent(oauthVerifier) +
+        '#Intent;scheme=unipost;package=com.joopererer.unipost;end;';
+      setTimeout(function () { window.location.replace(intentUrl); }, 1500);
+    } else {
+      showError(
+        'Missing authorization data',
+        'No Pinterest code or Flickr verifier was found in this link. You can close this page.'
+      );
     }
   </script>
 </body>
